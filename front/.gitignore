@@ -1,0 +1,16 @@
+**/.DS_Store
+
+/.env.local
+/.env.*.local
+/.env.production
+/.env.staging
+/.pnp.js
+/.pnp
+/.vscode
+
+/coverage
+/cypress/videos
+/dist
+/node_modules
+/yarn-debug.log*
+/yarn-error.log*

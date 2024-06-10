@@ -1,0 +1,17 @@
+version: 2
+updates:
+  # Maintain dependencies for GitHub Actions
+  - package-ecosystem: 'github-actions'
+    directory: '/'
+    schedule:
+      interval: 'weekly'
+      day: 'sunday'
+      time: '10:00'
+      timezone: 'Europe/Paris'
+
+  # TODO: Implement this when dependabot.yml will be compatible with Bun
+  # Maintain dependencies for npm
+  # - package-ecosystem: "npm"
+  #   directory: "/"
+  #   schedule:
+  #     interval: "weekly"

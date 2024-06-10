@@ -1,0 +1,19 @@
+/* @font-face generator */
+@mixin font($family, $url, $weight, $style, $font-display: auto) {
+  @font-face {
+    font-display: $font-display;
+    font-family: $family;
+    font-style: $style;
+    font-weight: $weight;
+    src:
+      url($url + '.woff2') format('woff2'),
+      url($url + '.woff') format('woff');
+  }
+}
+
+@mixin background-image($url, $position: 'center', $size: 'contain', $repeat: 'no-repeat') {
+  background-image: url($url);
+  background-position: #{$position};
+  background-size: #{$size};
+  background-repeat: #{$repeat};
+}

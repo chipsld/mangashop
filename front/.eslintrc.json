@@ -1,0 +1,37 @@
+{
+  "env": {
+    "browser": true,
+    "es2022": true,
+    "node": true
+  },
+  "extends": ["plugin:svelte/recommended", "eslint:recommended", "plugin:prettier/recommended"],
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": "latest",
+    "sourceType": "module"
+  },
+  "plugins": ["prettier"],
+  "overrides": [
+    {
+      "files": ["*.svelte"],
+      "parser": "svelte-eslint-parser"
+    }
+  ],
+  "rules": {
+    "quotes": [2, "single"],
+    "semi": [2, "always"],
+    "prettier/prettier": [
+      "error",
+      {
+        "usePrettierrc": true,
+        "singleQuote": true,
+        "trailingComma": "none",
+        "printWidth": 120,
+        "tabWidth": 2,
+        "arrowParens": "always"
+      }
+    ]
+  }
+}

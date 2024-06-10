@@ -1,0 +1,10 @@
+{
+  rules: {},
+  ignoreFiles: [
+    '**/*.js',
+    '**/*.cjs'
+    '**/*.scss',
+    '**/*.css',
+    '**/*.svelte',
+  ]
+}

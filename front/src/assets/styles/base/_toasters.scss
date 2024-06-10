@@ -1,0 +1,24 @@
+/* stylelint-disable */
+:root {
+  --toastContainerTop: auto;
+  --toastContainerRight: 2rem;
+  --toastContainerBottom: 2rem;
+  --toastContainerLeft: auto;
+}
+
+.custom-success-toaster {
+  --toastBackground: theme('colors.green.500');
+  --toastBarBackground: theme('colors.green.600');
+  --toastColor: theme('colors.white');
+  --toastBorderRadius: 0.3125rem;
+  --toastWidth: fit-content;
+}
+
+.custom-error-toaster {
+  --toastBackground: theme('colors.red.500');
+  --toastBarBackground: theme('colors.red.700');
+  --toastColor: theme('colors.white');
+  --toastBorderRadius: 0.3125rem;
+  --toastWidth: fit-content;
+}
+/* stylelint-enable */

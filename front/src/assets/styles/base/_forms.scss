@@ -1,0 +1,50 @@
+.form-element {
+  @apply flex flex-col gap-2 w-full;
+
+  .label {
+    @apply text-gray-900 text-sm font-medium;
+  }
+
+  .field,
+  .date-field input {
+    @apply w-full border bg-white shadow-sm border-gray-300 rounded-md px-3 py-2 appearance-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-0 focus-visible:outline-orange-600 focus-visible:border-transparent;
+  }
+
+  .error-message {
+    @apply text-red-700 text-xs;
+  }
+
+  .success-message {
+    @apply text-green-700 text-xs;
+  }
+}
+
+.form-element.error {
+  .label {
+    @apply text-red-800;
+  }
+
+  .field {
+    @apply bg-red-50 border-red-700 focus-visible:border-transparent text-red-950;
+  }
+}
+
+.form-element.success {
+  .label {
+    @apply text-green-800;
+  }
+
+  .field {
+    @apply bg-green-50 border-green-700 focus-visible:border-transparent text-green-950;
+  }
+}
+
+// Datepicker custom styles
+.date-field {
+  --date-picker-foreground: theme('colors.gray.900');
+  --date-picker-background: theme('colors.white');
+  --date-picker-highlight-border: theme('colors.gray.300');
+  --date-picker-highlight-shadow: theme('colors.orange.500');
+  --date-picker-selected-color: theme('colors.white');
+  --date-picker-selected-background: theme('colors.orange.500');
+}

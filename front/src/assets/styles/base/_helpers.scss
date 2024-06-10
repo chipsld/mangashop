@@ -1,0 +1,12 @@
+/* Flexbox */
+.flex-center-center {
+  @apply flex items-center justify-center justify-items-center;
+}
+
+.flex-center-between {
+  @apply flex items-center justify-between justify-items-center;
+}
+
+.flex-center-end {
+  @apply flex items-center justify-end;
+}

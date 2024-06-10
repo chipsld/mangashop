@@ -1,0 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import '@/assets/styles/base/variables';
+@import '@/assets/styles/base/toasters';
+@import '@/assets/styles/base/mixins';
+@import '@/assets/styles/base/animations';
+@import '@/assets/styles/base/fonts';
+@import '@/assets/styles/base/typo';
+@import '@/assets/styles/base/forms';
+
+/* Has to be last import to override previous styles */
+@import '@/assets/styles/base/helpers';

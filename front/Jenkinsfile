@@ -1,0 +1,12 @@
+@Library('KinobaJSL@master') import fr.kinoba.jenkins.*
+
+env.PROJECT_NAME = 'boilerplate-svelte'
+env.REPO_NAME = 'Kinoba/boilerplate-svelte'
+env.STAGING_URL = 'NA'
+env.RUN_STAGES = '\
+  Build Docker Jenkins images \
+  Check Dependencies security \
+  Compute analytics \
+'
+
+runProjectCIPipeline()
