@@ -1,25 +1,29 @@
-<script>
+<script async>
   import { fade } from 'svelte/transition';
   import { _ } from '@/translations/i18n';
+  import { getMangas } from '@/services/manga';
   import { currentUser } from '@/stores';
+  import { writable } from 'svelte/store';
+  import { onMount } from 'svelte';
+import MangaCard from '@/components/base/MangaCard.svelte';
+
+  let mangas = writable([]);
+  onMount(async () => {
+    const mangasData = await getMangas();
+    mangas.set(mangasData);
+
+  });
+
 </script>
 
-<div in:fade|global={{ duration: 500 }} class="h-screen flex-center-center">
-  <div class="block text-center">
-    <h1>{$_('home')}</h1>
-    <h2 class="h1">{$_('title')}</h2>
+<div in:fade|global={{ duration: 500 }} class="mt-20 flex-center-center">
+  <div class="flex">
+    <div class="grid grid-cols-4 gap-4">
+        {#each $mangas as manga}
+            <MangaCard manga={manga}></MangaCard>
+        {/each}
+    </div>
 
-    {#if $currentUser}
-      <h2 class="h2 mt-10 text-center">
-        {$_('hello')}
-        {$currentUser.firstname}
-        {$currentUser.lastname}
-      </h2>
-      <ul class="mt-5 text-center">
-        <li>- {$currentUser.email}</li>
-        <li>- {$currentUser.createdAt}</li>
-        <li>- {$currentUser.role}</li>
-      </ul>
-    {/if}
+
   </div>
 </div>

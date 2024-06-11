@@ -10,6 +10,8 @@ export default class extends BaseSchema {
       table.string('author').notNullable()
       table.string('cover').notNullable()
       table.text('synopsis', 'mediumtext').notNullable()
+      table.date('release_date').notNullable()
+      table.integer('category_id').notNullable()
       table.timestamp('created_at')
       table.timestamp('updated_at')
     })
