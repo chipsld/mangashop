@@ -18,6 +18,7 @@ export default class extends BaseSeeder {
     mangas.forEach((manga) => {
       const releaseDate = DateTime.fromJSDate(new Date(manga.published.from))
       Manga.create({
+        mal_id: manga.mal_id,
         title: manga.title,
         author: manga.authors[0].name,
         cover: manga.images?.webp?.large_image_url,

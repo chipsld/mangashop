@@ -8,7 +8,7 @@ import Comment from './comment.js'
 
 export default class Manga extends BaseModel {
   static preload(arg0: string) {
-      throw new Error('Method not implemented.')
+    throw new Error('Method not implemented.')
   }
   static get table() {
     return 'mangas'
@@ -16,6 +16,9 @@ export default class Manga extends BaseModel {
 
   @column({ isPrimary: true })
   declare id: number
+
+  @column()
+  declare mal_id: number
 
   @column()
   declare title: string
