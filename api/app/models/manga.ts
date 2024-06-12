@@ -7,9 +7,6 @@ import Genre from './genre.js'
 import Comment from './comment.js'
 
 export default class Manga extends BaseModel {
-  static preload(arg0: string) {
-    throw new Error('Method not implemented.')
-  }
   static get table() {
     return 'mangas'
   }
