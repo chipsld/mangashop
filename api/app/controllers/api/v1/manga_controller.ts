@@ -1,13 +1,12 @@
-import { MangaClient, JikanResponse, Manga } from '@tutkli/jikan-ts'
-
+import Manga from '#models/manga'
+import type { HttpContext } from '@adonisjs/core/http'
 export default class MangaController {
-  async index() {
-    const mangaClient = new MangaClient()
-
-    return await mangaClient
-      .getMangaSearch({ page: 1 })
-      .then((response: JikanResponse<Manga[]>) => {
-        return response.data
-      })
+  async index({}: HttpContext) {
+    return Manga.all()
+  }
+  async show({ params }: HttpContext) {
+    const { id } = params
+    const manga = await Manga.findByOrFail(id)
+    return manga.preload('comments')
   }
 }
