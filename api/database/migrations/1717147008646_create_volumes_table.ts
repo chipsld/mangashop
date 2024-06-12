@@ -5,10 +5,10 @@ export default class extends BaseSchema {
 
   async up() {
     this.schema.createTable(this.tableName, (table) => {
-      table.increments('id')
+      table.increments('id').primary()
       table.float('price').notNullable()
       table.integer('volume_number').notNullable()
-      table.integer('manga_id').notNullable()
+      table.integer('manga_id').references('mangas.id')
       table.string('cover').notNullable()
       table.timestamp('created_at')
       table.timestamp('updated_at')
