@@ -13,7 +13,7 @@ export default class extends BaseSeeder {
       })
 
     genres.forEach((genre) => {
-      Genre.create({ name: genre.name })
+      Genre.firstOrCreate({ name: genre.name })
     })
   }
 }
