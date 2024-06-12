@@ -9,6 +9,7 @@
 
 import router from '@adonisjs/core/services/router'
 import { middleware } from '#start/kernel'
+const CommentController = () => import('#controllers/api/v1/comment_controller')
 
 // Lazy loading controllers
 const SessionsController = () => import('#controllers/api/v1/users/sessions_controller')
@@ -40,5 +41,9 @@ router
         router.get('', [MangaController, 'index']).use(middleware.guest())
       })
       .prefix('mangas')
+
+    router
+      .resource('mangas.comments', CommentController)
+      .only(['show', 'update', 'store', 'destroy'])
   })
   .prefix('api/v1')
