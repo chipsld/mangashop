@@ -10,7 +10,7 @@ export default class extends BaseSeeder {
     const mangaClient = new MangaClient()
 
     const mangas = await mangaClient
-      .getMangaSearch({ limit: 100 })
+      .getMangaSearch()
       .then((response: JikanResponse<mangaType[]>) => {
         return response.data
       })
