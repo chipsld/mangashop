@@ -8,9 +8,10 @@ export default class MangaController {
   async index({}: HttpContext) {
     return Manga.all()
   }
-  async show({ params }: HttpContext) {
-    const { id } = params
-    const manga = await Manga.findByOrFail(id)
+
+  async show({ request }: HttpContext) {
+    const id = request.params().id
+    const manga = await Manga.findByOrFail('id', id)
     const mangaService = new MangaService(new MangaClient())
     return [manga.load('comments'), await mangaService.getMangaRecommandations(manga.mal_id)]
   }

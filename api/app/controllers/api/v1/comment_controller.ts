@@ -1,8 +1,8 @@
 import type { HttpContext } from '@adonisjs/core/http'
 import Comment from '#models/comment'
 export default class CommentController {
-  async show({ params }: HttpContext) {
-    const { id } = params
+  async show({ request }: HttpContext) {
+    const id = request.params().id
     return Comment.findByOrFail('manga_id', id)
   }
 
