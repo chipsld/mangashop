@@ -15,7 +15,7 @@
 </script>
 
 <Navbar />
-<main class="min-h-screen">
+<main class="min-h-screen mt-48 min-[640px]:mt-32 2xl:mt-48">
   <SvelteToast />
   {#if $location !== paths.legalNotice.path}
     <CookiesBanner />
