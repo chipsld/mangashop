@@ -1,6 +1,6 @@
 import { DateTime } from 'luxon'
-import { BaseModel, column, belongsTo } from '@adonisjs/lucid/orm'
-import { BelongsTo } from '@adonisjs/lucid/types/relations'
+import { BaseModel, hasOne, column } from '@adonisjs/lucid/orm'
+import type { HasOne } from '@adonisjs/lucid/types/relations'
 
 import Manga from './manga.js'
 import Genre from './genre.js'
@@ -21,9 +21,9 @@ export default class MangaGenre extends BaseModel {
   @column.dateTime({ autoCreate: true, autoUpdate: true })
   declare updatedAt: DateTime
 
-  @belongsTo(() => Manga)
-  declare Manga: BelongsTo<typeof Manga>
+  @hasOne(() => Manga)
+  declare Manga: HasOne<typeof Manga>
 
-  @belongsTo(() => Genre)
-  declare Genre: BelongsTo<typeof Genre>
+  @hasOne(() => Genre)
+  declare Genre: HasOne<typeof Genre>
 }
