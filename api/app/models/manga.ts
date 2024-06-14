@@ -3,8 +3,8 @@ import { DateTime } from 'luxon'
 import { BaseModel, column, hasMany } from '@adonisjs/lucid/orm'
 import type { HasMany } from '@adonisjs/lucid/types/relations'
 
-import Genre from './genre.js'
 import Comment from './comment.js'
+import MangaGenre from './manga_genre.js'
 
 export default class Manga extends BaseModel {
   static get table() {
@@ -44,8 +44,8 @@ export default class Manga extends BaseModel {
   @column()
   declare volumes: number
 
-  @hasMany(() => Genre)
-  declare genres: HasMany<typeof Genre>
+  @hasMany(() => MangaGenre)
+  declare genres: HasMany<typeof MangaGenre>
 
   @hasMany(() => Comment)
   declare comments: HasMany<typeof Comment>

@@ -1,7 +1,7 @@
 import { DateTime } from 'luxon'
 
-import { BaseModel, column, hasOne } from '@adonisjs/lucid/orm'
-import type { HasOne } from '@adonisjs/lucid/types/relations'
+import { BaseModel, belongsTo, column } from '@adonisjs/lucid/orm'
+import type { BelongsTo } from '@adonisjs/lucid/types/relations'
 
 import Manga from './manga.js'
 import User from './user.js'
@@ -13,11 +13,17 @@ export default class Comment extends BaseModel {
   @column()
   declare text: string
 
-  @hasOne(() => Manga)
-  declare manga: HasOne<typeof Manga>
+  @column()
+  declare mangaId: number
 
-  @hasOne(() => User)
-  declare user: HasOne<typeof User>
+  @column()
+  declare userId: number
+
+  @belongsTo(() => Manga)
+  declare manga: BelongsTo<typeof Manga>
+
+  @belongsTo(() => User)
+  declare user: BelongsTo<typeof User>
 
   @column.dateTime({ autoCreate: true })
   declare createdAt: DateTime
