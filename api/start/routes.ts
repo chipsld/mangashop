@@ -9,7 +9,7 @@
 
 import router from '@adonisjs/core/services/router'
 import { middleware } from '#start/kernel'
-import AuthController from '#controllers/api/v1/users/auth_controller'
+const AuthController = () => import('#controllers/api/v1/users/auth_controller')
 const CommentController = () => import('#controllers/api/v1/comment_controller')
 
 // Lazy loading controllers
@@ -19,8 +19,6 @@ const MangaController = () => import('#controllers/api/v1/manga_controller')
 
 router
   .group(() => {
-    // Mangas
-
     // Users
     router
       .group(() => {
@@ -38,13 +36,20 @@ router
       })
       .prefix('users')
 
+    // Mangas
     router.resource('mangas', MangaController).only(['show', 'index'])
-
+    //  Comments
     router
-      .resource('mangas.comments', CommentController)
-      .only(['show', 'update', 'store', 'destroy'])
-
-    router.post('users/:id/tokens', ({ params }) => {})
+      .group(() => {
+        router
+          .resource('manga.comments', CommentController)
+          .only(['show', 'update', 'store', 'destroy'])
+      })
+      .use(
+        middleware.auth({
+          guards: ['api'],
+        })
+      )
   })
 
   .prefix('api/v1')
