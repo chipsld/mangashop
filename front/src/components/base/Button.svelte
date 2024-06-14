@@ -22,10 +22,10 @@
   }
 
   .primary {
-    @apply bg-orange-600 text-white hover:bg-orange-500 focus-visible:outline-orange-600 disabled:bg-orange-400;
+    @apply bg-jump-red text-white hover:bg-jump-red-hover focus-visible:outline-orange-600 disabled:bg-orange-400;
   }
 
   .outlined {
-    @apply text-orange-600 border-2 border-orange-600 hover:text-orange-500 hover:border-orange-500 disabled:border-orange-400 disabled:text-orange-400;
+    @apply text-jump-red border-2 border-orange-600 hover:text-jump-red-hover hover:border-jump-red-hover disabled:border-orange-400 disabled:text-orange-400;
   }
 </style>

@@ -36,7 +36,8 @@
   };
 </script>
 
-<div in:fade|global={{ duration: 500 }} class="flex flex-col justify-center h-screen px-6 pb-8 lg:px-8">
+<div in:fade|global={{ duration: 500 }} class="flex flex-col justify-center h-[78vh] px-6 pb-8 lg:px-8">
+  <img src="src/assets/svg/welcome.svg" alt="welcome character" class="h-44 w-44m-auto">
   <div class="sm:mx-auto sm:w-full sm:max-w-sm">
     <h2 class="h2 mt-10 text-center">
       {$_('login_form.title')}
@@ -56,10 +57,11 @@
       />
 
       <Button type="submit" classes="w-full">{$_('login_form.submit')}</Button>
-    </form>
+      </form>
+      
 
     <p class="text-center">
-      <button type="button" class="mt-6 mx-auto text-sm font-semibold text-orange-600 hover:text-orange-500">
+      <button type="button" class="mt-6 mx-auto text-sm font-semibold text-jump-red hover:text-jump-red-hover">
         {$_('login_form.forgot_password')}
       </button>
     </p>

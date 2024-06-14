@@ -10,10 +10,9 @@
 
 <footer class="w-full mt-auto bg-white border-t border-gray-200">
   <div class="w-full max-w-screen-xl p-4 py-6 mx-auto lg:py-8">
-    <div class="md:flex md:justify-between">
-      <div class="flex mb-6 md:mb-0">
-        <Icon name="svelte" customIcon classes="h-8 w-8 m-auto mr-2" />
-        <span class="self-center text-2xl font-semibold whitespace-nowrap">{$_('title')}</span>
+    <div class="md:flex md:justify-between max-[894px]:flex-col">
+      <div class="flex items-center mb-6 min-[894px]:mb-0">
+        <img src="src/assets/svg/footer.svg" alt="mangashop logo" class="w-80">
       </div>
       <div class="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
         <div>
