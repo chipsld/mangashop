@@ -11,12 +11,17 @@ export default class MangaController {
 
   async show({ params }: HttpContext) {
     const { id } = params
-    const manga = await Manga.findOrFail(id)
-    await manga.load('comments')
-    await manga.load('genres')
+
+    const manga = await Manga.query()
+      .where('id', id)
+      .preload('comments')
+      .preload('genres', async (genresQuery) => {
+        await genresQuery.preload('genre')
+      })
+      .first()
 
     const mangaService = new MangaService(new MangaClient())
 
-    return [manga, await mangaService.getMangaRecommandations(manga.mal_id)]
+    return [manga, await mangaService.getMangaRecommandations(manga?.mal_id)]
   }
 }
