@@ -1,5 +1,6 @@
 import type { HttpContext } from '@adonisjs/core/http'
 import Comment from '#models/comment'
+import { createCommentValidator } from '#validators/comment_validator'
 export default class CommentController {
   async show({ params }: HttpContext) {
     const id = params.id
@@ -8,8 +9,12 @@ export default class CommentController {
   }
 
   async store({ request }: HttpContext) {
+    const data = request.all()
+    const payload = await createCommentValidator.validate(data)
     return Comment.create({
-      text: request.params.name,
+      text: payload.text,
+      mangaId: payload.manga_id,
+      userId: payload.user_id,
     })
   }
 
