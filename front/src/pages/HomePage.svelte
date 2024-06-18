@@ -1,11 +1,11 @@
 <script async>
   import { fade } from 'svelte/transition';
-  import { _ } from '@/translations/i18n';
-  import { getMangas } from '@/services/manga';
-  import { currentUser } from '@/stores';
   import { writable } from 'svelte/store';
   import { onMount } from 'svelte';
-import MangaCard from '@/components/base/MangaCard.svelte';
+
+  import { _ } from '@/translations/i18n';
+  import { getMangas } from '@/services/manga';
+  import MangaCard from '@/components/base/MangaCard.svelte';
 
   let mangas = writable([]);
   onMount(async () => {
@@ -22,7 +22,5 @@ import MangaCard from '@/components/base/MangaCard.svelte';
             <MangaCard manga={manga}></MangaCard>
         {/each}
     </div>
-
-
   </div>
 </div>

@@ -22,6 +22,9 @@ export default class MangaController {
 
     const mangaService = new MangaService(new MangaClient())
 
-    return [manga, await mangaService.getMangaRecommandations(manga?.mal_id)]
+    return {
+      manga,
+      recommendations: await mangaService.getMangaRecommandations(manga?.mal_id),
+    }
   }
 }

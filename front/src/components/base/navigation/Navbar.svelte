@@ -34,7 +34,7 @@
       >
         <Icon name={faBars}/>
       </button>
-      <div class="{navbarOpen ? 'block' : 'hidden'} w-full min-[640px]:block w-auto">
+      <div class="{navbarOpen ? 'block' : 'hidden'} w-full min-[640px]:block">
         <ul class="flex font-medium flex-row justify-end space-x-2 max-[640px]:flex-col max-[640px]:items-center max-[640px]:space-x-0">
           <hr class="my-4 border-gray-200 w-full sm:mx-auto lg:my-8 min-[640px]:hidden" />
 
@@ -47,7 +47,7 @@
                   push(paths.about.path);
                 }}>{$_('about')}</button
               >
-            </li> 
+            </li>
             <li>
               <button
                 type="button"

@@ -3,6 +3,10 @@ export const paths = {
     path: '/',
     frequency: 'daily'
   },
+  manga: {
+    path: '/mangas',
+    frequency: 'daily'
+  },
   login: {
     path: '/login',
     frequency: 'monthly'

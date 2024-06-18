@@ -9,6 +9,9 @@ const pages = {
   [paths.home.path]: wrap({
     asyncComponent: () => import('@/pages/HomePage.svelte')
   }),
+  [paths.manga.path]: wrap({
+    asyncComponent: () => import('@/pages/MangaPage.svelte')
+  }),
   [paths.login.path]: wrap({
     asyncComponent: () => import('@/pages/AuthPage.svelte'),
     conditions: [() => !get(currentUser)]
