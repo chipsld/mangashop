@@ -14,7 +14,9 @@ export default class MangaController {
 
     const manga = await Manga.query()
       .where('id', id)
-      .preload('comments')
+      .preload('comments', async (commentsQuery) => {
+        await commentsQuery.preload('user')
+      })
       .preload('genres', async (genresQuery) => {
         await genresQuery.preload('genre')
       })
